@@ -1,0 +1,11 @@
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    registerWithEureka: false # 表示自己是否注册到Eureka Server，默认为 true。
+    fetchRegistry: false # 是否从 Eureka Server 获取注册信息，默认为 true，单点的 Server 不需要。
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
