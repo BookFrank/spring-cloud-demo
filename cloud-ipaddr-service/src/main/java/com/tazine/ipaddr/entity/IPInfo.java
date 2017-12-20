@@ -1,4 +1,4 @@
-package com.tazine.cloud.ipaddr.entity;
+package com.tazine.ipaddr.entity;
 
 /**
  * IP 查询响应实体

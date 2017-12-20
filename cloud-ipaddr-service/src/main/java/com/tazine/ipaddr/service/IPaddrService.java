@@ -1,7 +1,7 @@
-package com.tazine.cloud.ipaddr.service;
+package com.tazine.ipaddr.service;
 
-import com.tazine.cloud.ipaddr.entity.IPInfo;
-import com.tazine.cloud.ipaddr.utils.IPExt;
+import com.tazine.ipaddr.entity.IPInfo;
+import com.tazine.ipaddr.utils.IPExt;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

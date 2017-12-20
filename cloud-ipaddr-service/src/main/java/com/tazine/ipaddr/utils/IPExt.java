@@ -1,4 +1,4 @@
-package com.tazine.cloud.ipaddr.utils;
+package com.tazine.ipaddr.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
