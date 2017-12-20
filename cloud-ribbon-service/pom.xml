@@ -7,7 +7,6 @@
 		<groupId>com.tazine.cloud</groupId>
 		<artifactId>spring-cloud-demo</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<artifactId>cloud-ribbon-service</artifactId>
@@ -77,6 +76,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
 			</plugin>
 		</plugins>
 	</build>
