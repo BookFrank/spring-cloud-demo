@@ -1,11 +1,41 @@
+spring:
+  application:
+    name: cloud-eureka-server-ha
+  profiles:
+    active: eureka-server-1
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: password
+
+---
+
+spring:
+  profiles: eureka-server-1
 server:
   port: 8000
-
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: eureka-server-1
   client:
-    registerWithEureka: false # 表示自己是否注册到Eureka Server，默认为 true。
-    fetchRegistry: false # 是否从 Eureka Server 获取注册信息，默认为 true，单点的 Server 不需要。
+    # registerWithEureka: false # 表示是否将自己注册到Eureka Server，默认为 true。
+    # fetchRegistry: false # 是否从 Eureka Server 获取注册信息，默认为 true，单点的 Server 不需要。
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka-server-2:8001/eureka/
+
+---
+
+spring:
+  profiles: eureka-server-2
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: eureka-server-2
+  client:
+    # registerWithEureka: false # 表示是否将自己注册到Eureka Server，默认为 true。
+    # fetchRegistry: false # 是否从 Eureka Server 获取注册信息，默认为 true，单点的 Server 不需要。
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8000/eureka/
