@@ -1,0 +1,15 @@
+server:
+  port: 8004
+cloud:
+  serviceUrl: http://user:password@eureka-server-1:8000/eureka/,http://user:password@eureka-server-2:8001/eureka/
+
+spring:
+  application:
+    name: cloud-feign-service   # 注册到 Eureka Server 上的应用名称
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true  # 将自己的IP 注册到Eureka Server
+  client:
+    service-url:
+      defaultZone: ${cloud.serviceUrl}
