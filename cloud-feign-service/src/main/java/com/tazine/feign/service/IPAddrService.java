@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Feign 接口，指定调用哪个服务。
+ *
+ * @author frank
+ * @since 1.0.0
  */
 @FeignClient(value = "cloud-ipaddr-service")
 public interface IPAddrService {
