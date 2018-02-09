@@ -3,7 +3,7 @@ package com.tazine.ipaddr.entity;
 /**
  * IP 查询响应实体
  *
- * @author Frank
+ * @author frank
  * @since 1.0.0
  */
 public class IPInfo {

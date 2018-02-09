@@ -7,17 +7,20 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 
 /**
- * Created by lina on 2017/12/13.
+ * Ip 转地址服务
+ *
+ * @author frank
+ * @since 1.0.0
  */
 @Service
 public class IPaddrService {
 
     static {
         IPExt.loadAsStream(ClassLoader.getSystemResourceAsStream("mydata4vipday1.datx"));
-         // IPExt.loadAsStream(IPaddrService.class.getResourceAsStream("/mydata4vipday1.datx"));
+        // IPExt.loadAsStream(IPaddrService.class.getResourceAsStream("/mydata4vipday1.datx"));
     }
 
-    public IPInfo ipSeek(String ip){
+    public IPInfo ipSeek(String ip) {
         IPInfo ipInfo = new IPInfo();
         String[] ipInfoArr = IPExt.find(ip);
         ipInfo.setCountry(ipInfoArr[0]);
@@ -37,8 +40,5 @@ public class IPaddrService {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(IPExt.find("0.0.0.0")));
-
     }
-
-
 }

@@ -12,6 +12,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * IPExt
+ *
+ * @author frank
+ * @since 1.0.0
+ */
 public class IPExt {
 
     public static void main(String[] args) {

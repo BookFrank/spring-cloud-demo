@@ -5,13 +5,19 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Arrays;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * IP
+ *
+ * @author frank
+ * @since 1.0.0
+ */
 class IP {
 
     public static String randomIp() {
@@ -28,12 +34,11 @@ class IP {
         return str.toString();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         IP.load("H:\\loveapp\\codebase\\17mon\\17monipdb.dat");
 
         Long st = System.nanoTime();
-        for (int i = 0; i < 1000000; i++)
-        {
+        for (int i = 0; i < 1000000; i++) {
             IP.find(randomIp());
         }
         Long et = System.nanoTime();
@@ -49,7 +54,7 @@ class IP {
     private static ByteBuffer dataBuffer;
     private static ByteBuffer indexBuffer;
     private static Long lastModifyTime = 0L;
-    private static File ipFile ;
+    private static File ipFile;
     private static ReentrantLock lock = new ReentrantLock();
 
     public static void load(String filename) {
@@ -76,7 +81,7 @@ class IP {
 
     public static String[] find(String ip) {
         int ip_prefix_value = new Integer(ip.substring(0, ip.indexOf(".")));
-        long ip2long_value  = ip2long(ip);
+        long ip2long_value = ip2long(ip);
         int start = index[ip_prefix_value];
         int max_comp_len = offset - 1028;
         long index_offset = -1;
@@ -150,7 +155,7 @@ class IP {
                 if (fin != null) {
                     fin.close();
                 }
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             lock.unlock();
@@ -161,7 +166,7 @@ class IP {
         return int2long((((a & 0xff) << 24) | ((b & 0xff) << 16) | ((c & 0xff) << 8) | (d & 0xff)));
     }
 
-    private static int str2Ip(String ip)  {
+    private static int str2Ip(String ip) {
         String[] ss = ip.split("\\.");
         int a, b, c, d;
         a = Integer.parseInt(ss[0]);
@@ -171,7 +176,7 @@ class IP {
         return (a << 24) | (b << 16) | (c << 8) | d;
     }
 
-    private static long ip2long(String ip)  {
+    private static long ip2long(String ip) {
         return int2long(str2Ip(ip));
     }
 
